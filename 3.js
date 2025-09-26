@@ -486,9 +486,6 @@ function migrateHabitsWithIds() {
   }
 }
 
-// ================== INICIALIZAR APLICACIÓN ==================
-initializeApp();
-
 // ================== CONTADOR DE HÁBITOS ==================
 function setupHabitCounter() {
     const counter = document.createElement('div');
@@ -514,3 +511,7 @@ function setupHabitCounter() {
 
 // Inicializar después de que todo esté cargado
 setTimeout(setupHabitCounter, 100);
+
+
+// ================== INICIALIZAR APLICACIÓN ==================
+initializeApp();
