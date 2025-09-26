@@ -488,3 +488,29 @@ function migrateHabitsWithIds() {
 
 // ================== INICIALIZAR APLICACIÓN ==================
 initializeApp();
+
+// ================== CONTADOR DE HÁBITOS ==================
+function setupHabitCounter() {
+    const counter = document.createElement('div');
+    counter.id = 'habitCounter';
+    counter.style.fontWeight = '600';
+    counter.style.color = 'var(--primary-color)';
+    counter.style.marginTop = '10px';
+    
+    document.querySelector('#habitList').closest('.card').insertBefore(counter, document.querySelector('#habitList'));
+    
+    function updateCounter() {
+        counter.textContent = `📊 Total de hábitos: ${habits.length}`;
+    }
+    
+    updateCounter();
+    // Actualizar cada vez que se modifiquen los hábitos
+    const originalRender = renderHabits;
+    renderHabits = function() {
+        originalRender();
+        updateCounter();
+    };
+}
+
+// Inicializar después de que todo esté cargado
+setTimeout(setupHabitCounter, 100);
