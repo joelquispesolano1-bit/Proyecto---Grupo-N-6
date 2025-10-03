@@ -36,6 +36,26 @@
       </div>
     </section>
 
+<!-- NUEVA SECCIÓN: Gestión de Perfil -->
+    <section class="card">
+      <h2>👤 Gestión de Perfil</h2>
+      <div class="form">
+        <input type="text" id="profileName" placeholder="Nombre completo">
+        <input type="email" id="profileEmail" placeholder="Email">
+        <select id="profileType">
+          <option value="basico">Básico</option>
+          <option value="premium">Premium</option>
+        </select>
+        <button id="createProfileBtn">Crear Perfil</button>
+      </div>
+      <div id="profileInfo" style="margin-top: 15px; display: none;">
+        <h3>Información del Perfil</h3>
+        <div id="profileDetails"></div>
+        <button id="syncHabitsBtn" style="margin-top: 10px;">Sincronizar Hábitos</button>
+      </div>
+    </section>
+
+    
     <!-- Formulario de nuevo hábito -->
     <section class="card">
       <h2>➕ Agregar hábito</h2>
