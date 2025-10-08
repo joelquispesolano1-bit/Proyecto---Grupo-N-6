@@ -1,0 +1,496 @@
+/* ==================== VARIABLES Y ESTILOS GENERALES ==================== */
+:root {
+  /* Tema claro (default) */
+  --bg-color: #f0f7ff;
+  --text-color: #2c3e50;
+  --card-bg: #ffffff;
+  --header-bg: linear-gradient(135deg, #3498db, #2ecc71);
+  --border-color: #dce6f4;
+  --primary-color: #3498db;
+  --primary-hover: #2980b9;
+  --secondary-color: #2ecc71;
+  --danger-color: #e74c3c;
+  --danger-hover: #c0392b;
+  --input-bg: #ffffff;
+  --item-bg: #ecf9ff;
+  --item-border: #c5e6ff;
+  --status-done-bg: #d4f7e6;
+  --status-done-color: #27ae60;
+  --status-fail-bg: #fde0dc;
+  --status-fail-color: #e74c3c;
+  --modal-bg: #ffffff;
+  --modal-text: #2c3e50;
+  --shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  --card-radius: 16px;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a2235;
+  --text-color: #e0e7ff;
+  --card-bg: #243145;
+  --header-bg: linear-gradient(135deg, #6c5ce7, #00cec9);
+  --border-color: #344563;
+  --primary-color: #6c5ce7;
+  --primary-hover: #5649c9;
+  --secondary-color: #00cec9;
+  --danger-color: #fd79a8;
+  --danger-hover: #e84393;
+  --input-bg: #2c3a58;
+  --item-bg: #2a3a5a;
+  --item-border: #394b7a;
+  --status-done-bg: #00b894;
+  --status-done-color: #ffffff;
+  --status-fail-bg: #d63031;
+  --status-fail-color: #ffffff;
+  --modal-bg: #2c3a58;
+  --modal-text: #e0e7ff;
+  --shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="blue"] {
+  --bg-color: #eaf6ff;
+  --text-color: #1a3a5f;
+  --card-bg: #ffffff;
+  --header-bg: linear-gradient(135deg, #1e88e5, #4fc3f7);
+  --border-color: #bbdefb;
+  --primary-color: #1e88e5;
+  --primary-hover: #1565c0;
+  --secondary-color: #4fc3f7;
+  --danger-color: #ff5252;
+  --danger-hover: #d32f2f;
+  --input-bg: #ffffff;
+  --item-bg: #e3f2fd;
+  --item-border: #bbdefb;
+  --status-done-bg: #64dd17;
+  --status-done-color: #ffffff;
+  --status-fail-bg: #ff1744;
+  --status-fail-color: #ffffff;
+  --modal-bg: #ffffff;
+  --modal-text: #1a3a5f;
+  --shadow: 0 6px 16px rgba(30, 136, 229, 0.2);
+}
+
+[data-theme="green"] {
+  --bg-color: #f1f8e9;
+  --text-color: #33691e;
+  --card-bg: #ffffff;
+  --header-bg: linear-gradient(135deg, #43a047, #7cb342);
+  --border-color: #c5e1a5;
+  --primary-color: #43a047;
+  --primary-hover: #2e7d32;
+  --secondary-color: #7cb342;
+  --danger-color: #ef5350;
+  --danger-hover: #d32f2f;
+  --input-bg: #ffffff;
+  --item-bg: #e8f5e9;
+  --item-border: #c5e1a5;
+  --status-done-bg: #66bb6a;
+  --status-done-color: #ffffff;
+  --status-fail-bg: #ef5350;
+  --status-fail-color: #ffffff;
+  --modal-bg: #ffffff;
+  --modal-text: #33691e;
+  --shadow: 0 6px 16px rgba(76, 175, 80, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* ==================== HEADER ==================== */
+header {
+  background: var(--header-bg);
+  padding: 1.2rem 1.5rem;
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 800;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#userName {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.logout-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ==================== CONTENEDORES ==================== */
+main {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 1.2rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  padding: 1.5rem;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow);
+}
+
+/* ==================== FORMULARIOS ==================== */
+.form {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.clock-form {
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.form input,
+.form button,
+.form select {
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  font-size: 1rem;
+  background: var(--input-bg);
+  color: var(--text-color);
+}
+
+.form input {
+  flex: 1;
+  min-width: 150px;
+}
+
+.form input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+button {
+  background: var(--primary-color);
+  border: none;
+  color: white;
+  padding: 0.8rem 1.4rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+/* ==================== LISTAS ==================== */
+.list {
+  margin-top: 15px;
+}
+
+.list .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--item-bg);
+  border: 1px solid var(--item-border);
+  padding: 1rem 1.2rem;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  transition: transform 0.2s;
+}
+
+.list .item:hover {
+  transform: translateY(-2px);
+}
+
+.list .item strong {
+  color: var(--primary-hover);
+}
+
+.list input[type="time"],
+.list input[type="text"] {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.6rem;
+  background: var(--input-bg);
+  color: var(--text-color);
+  font-size: 0.95rem;
+}
+
+.list button {
+  background: var(--danger-color);
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.list button:hover {
+  background: var(--danger-hover);
+}
+
+/* ==================== HISTORIAL ==================== */
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#activityCounters {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+#activityList .item {
+  display: grid;
+  grid-template-columns: 1fr 100px 120px 100px;
+  align-items: center;
+  text-align: center;
+  background: var(--card-bg);
+}
+
+#activityList .item span:first-child {
+  text-align: left;
+  font-weight: 500;
+}
+
+.status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.status.done {
+  background: var(--status-done-bg);
+  color: var(--status-done-color);
+}
+
+.status.fail {
+  background: var(--status-fail-bg);
+  color: var(--status-fail-color);
+}
+
+/* ==================== ALARMA ==================== */
+#alarmBox {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  background: var(--danger-color);
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 10000;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+#stopAlarmBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  background: var(--primary-color);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 10000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#stopAlarmBtn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+/* ==================== MODAL ==================== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: var(--modal-bg);
+  padding: 28px;
+  border-radius: 16px;
+  max-width: 450px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: var(--modal-text);
+  line-height: 1.5;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.modal-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  min-width: 100px;
+}
+
+.modal-buttons button:first-child {
+  background: var(--primary-color);
+  color: white;
+}
+
+.modal-buttons button:last-child {
+  background: var(--secondary-color);
+  color: white;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ==================== RELOJ PRINCIPAL ==================== */
+.clock-card {
+  text-align: center;
+}
+
+.clock-card #clock {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== PERFIL ==================== */
+.profile-info {
+  margin-top: 15px;
+  padding: 15px;
+  background: var(--item-bg);
+  border-radius: 12px;
+  border: 1px solid var(--item-border);
+}
+
+.profile-info h3 {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+#profileDetails p {
+  margin: 8px 0;
+  color: var(--text-color);
+}
+
+#syncHabitsBtn {
+  background: var(--secondary-color);
+  margin-top: 10px;
+}
+
+#syncHabitsBtn:hover {
+  background: #27ae60;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  #activityList .item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    text-align: left;
+  }
+  
+  #activityList .item span {
+    text-align: left !important;
+  }
+  
+  .history-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .clock-form {
+    flex-direction: column;
+  }
+  
+  .user-menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
