@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1759879039",
+    "nombre": "joacim",
+    "email": "jota123@gmail.com",
+    "contraseña": "$2b$12$F.D/H9rFu9Ea19i.hkXFJuXSxzLlL6IE9ttoFu.uNFAfBTuKrG6WG",
+    "habitos_programados": [],
+    "historial_habitos": [
+      {
+        "id": "1759879083",
+        "nombre": "ejercicio",
+        "hora": "18:18",
+        "estado": "completado",
+        "fecha": "2025-10-07T18:18:03.301490"
+      },
+      {
+        "id": "1759879150",
+        "nombre": "comer",
+        "hora": "18:19",
+        "estado": "no_completado",
+        "fecha": "2025-10-07T18:19:10.709069"
+      }
+    ],
+    "fecha_creacion": "2025-10-07T18:17:19.807403"
+  }
+]
