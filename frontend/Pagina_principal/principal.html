@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hábitos Saludables - Panel Principal</title>
+    <link rel="stylesheet" href="principal.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>💧 Hábitos Saludables</h1>
+            <div class="user-menu">
+                <span id="userName">Usuario</span>
+                <button class="logout-btn" onclick="cerrarSesion()">🚪 Cerrar Sesión</button>
+            </div>
+        </div>
+        <!-- ✅ MEJORADO: Audio con soporte múltiple -->
+        <audio id="alarmSound" preload="auto">
+            <source src="alarma.mp3" type="audio/mpeg">
+            Tu navegador no soporta audio HTML5.
+        </audio>
+    </header>
+
+    <main>
+        <!-- Reloj principal -->
+        <section class="card clock-card">
+            <div id="clock">--:--:--</div>
+            <div class="form clock-form">
+                <input type="time" id="manualClock">
+                <button id="setClockBtn">🕐 Cambiar hora</button>
+                <select id="formatSelect">
+                    <option value="24">Formato: 24h</option>
+                    <option value="12">Formato: 12h</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Gestión de Perfil -->
+        <section class="card">
+            <h2>👤 Mi Perfil</h2>
+            <div id="profileInfo" class="profile-info">
+                <div id="profileDetails">
+                    <p>Cargando información del perfil...</p>
+                </div>
+                <button id="syncHabitsBtn" onclick="sincronizarHabitos()">🔄 Sincronizar Hábitos</button>
+            </div>
+        </section>
+
+        <!-- Formulario de nuevo hábito -->
+        <section class="card">
+            <h2>➕ Agregar hábito</h2>
+            <div class="form">
+                <input type="text" id="habitName" placeholder="Ej: Beber agua" maxlength="30">
+                <input type="time" id="habitTime">
+                <button id="addHabitBtn">Agregar</button>
+            </div>
+        </section>
+
+        <!-- Lista de hábitos -->
+        <section class="card">
+            <h2>📝 Mis hábitos</h2>
+            <div id="habitList" class="list"></div>
+        </section>
+
+        <!-- Historial -->
+        <section class="card">
+            <h2>📊 Historial</h2>
+            <div class="history-header">
+                <div id="activityCounters">✅ Cumplidos: 0 | ❌ No cumplidos: 0</div>
+                <select id="filterSelect">
+                    <option value="all">Todos</option>
+                    <option value="done">Cumplidos</option>
+                    <option value="fail">No cumplidos</option>
+                </select>
+            </div>
+            <div id="activityList" class="list"></div>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <p id="modalMessage"></p>
+            <div class="modal-buttons" id="modalButtons"></div>
+        </div>
+    </div>
+
+    <script src="principal.js"></script>
+</body>
+</html>
