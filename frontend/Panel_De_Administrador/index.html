@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Hábitos Saludables</title>
+    <link rel="stylesheet" href="/Panel_De_Administrador/admin.css">
+</head>
+<body>
+    <header class="admin-header">
+        <div class="header-content">
+            <div class="header-left">
+                <h1>⚙️ Panel de Administración</h1>
+                <p class="subtitle">Gestión de Usuarios y Hábitos</p>
+            </div>
+            <div class="admin-menu">
+                <span class="admin-welcome">👋 Hola, Administrador</span>
+                <button class="logout-btn" onclick="cerrarSesion()">🚪 Cerrar Sesión</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="admin-container">
+        <!-- Estadísticas -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-content">
+                    <div class="stat-number" id="totalUsuarios">0</div>
+                    <div class="stat-label">Usuarios Registrados</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-content">
+                    <div class="stat-number" id="totalHabitos">0</div>
+                    <div class="stat-label">Total de Hábitos</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-content">
+                    <div class="stat-number" id="habitosCompletados">0</div>
+                    <div class="stat-label">Hábitos Completados</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🔄</div>
+                <div class="stat-content">
+                    <div class="stat-number" id="habitosHoy">0</div>
+                    <div class="stat-label">Activos Hoy</div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Lista de perfiles -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="section-title">📋 Lista de Usuarios</h2>
+                <div class="card-actions">
+                    <div class="search-box">
+                        <input type="text" id="buscarUsuario" placeholder="🔍 Buscar usuario..." onkeyup="filtrarUsuarios()">
+                    </div>
+                    <button class="btn btn-secondary" onclick="cargarPerfiles()">
+                        <span class="btn-icon">🔄</span>
+                        Actualizar
+                    </button>
+                </div>
+            </div>
+            <div class="table-container">
+                <table id="tablaPerfiles">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Usuario</th>
+                            <th>Email</th>
+                            <th>Fecha Registro</th>
+                            <th>Hábitos</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpoTabla">
+                        <tr>
+                            <td colspan="7" class="loading">
+                                <div class="loading-spinner"></div>
+                                Cargando usuarios...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-footer">
+                <div class="pagination-info">
+                    Mostrando <span id="usuariosMostrados">0</span> de <span id="totalUsuariosTabla">0</span> usuarios
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para editar perfil -->
+    <div id="modalEditar" class="modal">
+        <div class="modal-content">
+            <h3>✏️ Editar Usuario</h3>
+            <div class="form-group">
+                <label>Nombre Completo</label>
+                <input type="text" id="editarNombre">
+            </div>
+            <div class="form-group">
+                <label>Correo Electrónico</label>
+                <input type="email" id="editarEmail">
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-primary" onclick="guardarCambios()">💾 Guardar Cambios</button>
+                <button class="btn btn-secondary" onclick="cerrarModal()">❌ Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para ver detalles -->
+    <div id="modalDetalles" class="modal">
+        <div class="modal-content large">
+            <h3>👤 Detalles del Usuario</h3>
+            <div id="detallesContenido">
+                <!-- Los detalles se cargan dinámicamente -->
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-primary" onclick="cerrarModal()">✅ Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de confirmación -->
+    <div id="modalConfirmacion" class="modal">
+        <div class="modal-content">
+            <h3>⚠️ Confirmar Eliminación</h3>
+            <p id="mensajeConfirmacion">¿Está seguro de que desea eliminar este usuario?</p>
+            <div class="modal-actions">
+                <button class="btn btn-danger" onclick="confirmarEliminacion()">🗑️ Sí, Eliminar</button>
+                <button class="btn btn-secondary" onclick="cancelarEliminacion()">❌ Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/Panel_De_Administrador/admin.js"></script>
+</body>
+</html>

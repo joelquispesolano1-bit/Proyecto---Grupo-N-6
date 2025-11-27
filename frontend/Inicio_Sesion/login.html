@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión - Hábitos Saludables</title>
+    <link rel="stylesheet" href="/frontend/Inicio_Sesion/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="logo">
+                <h1>💧 Hábitos Saludables</h1>
+                <p>Tu compañero para una vida más saludable</p>
+            </div>
+
+            <form id="loginForm" class="login-form">
+                <div class="input-group">
+                    <input type="email" id="email" required>
+                    <label for="email">Correo Electrónico</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="password" required>
+                    <label for="password">Contraseña</label>
+                </div>
+
+                <button type="button" class="login-btn" onclick="iniciarSesion()">
+                    Iniciar Sesión
+                </button>
+
+                <div class="admin-access">
+                    <p><a href="#" onclick="accesoAdministrador()">🔐 Acceso Administrador</a></p>
+                </div>
+
+                <div class="register-link">
+                    <p>¿No tienes cuenta? <a href="#" onclick="mostrarRegistro()">Regístrate aquí</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Registro MEJORADO -->
+    <div id="modalRegistro" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <h2>Crear Nueva Cuenta</h2>
+            <form id="registroForm">
+                <div class="input-group">
+                    <input type="text" id="nombreCompleto" required>
+                    <label for="nombreCompleto">Nombre Completo</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="emailRegistro" required>
+                    <label for="emailRegistro">Correo Electrónico</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="passwordRegistro" required minlength="6">
+                    <label for="passwordRegistro">Contraseña (mín. 6 caracteres)</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="confirmPasswordRegistro" required>
+                    <label for="confirmPasswordRegistro">Confirmar Contraseña</label>
+                </div>
+                <div class="button-group">
+                    <button type="button" class="btn-primary" onclick="registrarUsuario()">
+                        Crear Cuenta
+                    </button>
+                    <button type="button" class="btn-secondary" onclick="cerrarModal()">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Acceso Administrador -->
+    <div id="modalAdmin" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModalAdmin()">&times;</span>
+            <h2>🔐 Acceso Administrador</h2>
+            <div class="admin-info">
+                <p><strong>Credenciales de Administrador:</strong></p>
+                <p>👤 Usuario: <strong>admin</strong></p>
+                <p>🔑 Contraseña: <strong>admin123</strong></p>
+            </div>
+            <div class="input-group">
+                <input type="text" id="adminUser" placeholder="Ingresa el usuario administrador" value="admin">
+                <label for="adminUser">👤 Usuario</label>
+            </div>
+            <div class="input-group">
+                <input type="password" id="adminPassword" placeholder="Ingresa la contraseña" value="admin123">
+                <label for="adminPassword">🔑 Contraseña</label>
+            </div>
+            <div class="button-group">
+                <button type="button" class="btn-primary" onclick="validarAdmin()">
+                    🚀 Acceder como Admin
+                </button>
+                <button type="button" class="btn-secondary" onclick="cerrarModalAdmin()">
+                    ❌ Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/frontend/Inicio_Sesion/login.js"></script>
+</body>
+</html>
