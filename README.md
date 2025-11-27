@@ -53,6 +53,7 @@ Sigue las instrucciones del instalador
 📁 tu-proyecto/
  ├── 📁 backend/
  ├── 📁 frontend/
+ ├── 🗄️ mi_app_db.sql  (base de datos SQL)
  └── 📄 README.md
 ## PASO 4: Instalar Dependencias desde VS Code
 - En VS Code, ve a Terminal → New Terminal (Terminal → Nueva Terminal)
@@ -121,21 +122,24 @@ Tienes dos opciones:
 
 ## LISTA DE ENDPOINTS IMPLEMENTADOS
 
-Método	URL                                 	Qué hace
-GET	    http://localhost:5000/health	        Verifica que el servidor funcione
-POST	http://localhost:5000/perfiles	        Crear nuevo usuario
+Método	URL                                 	   ¿Qué hace?
+GET	    http://localhost:5000/health	          Verifica que el servidor funcione
+POST	   http://localhost:5000/perfiles	        Crear nuevo usuario
 GET     http://localhost:5000/perfiles	        Ver todos los usuarios
 GET	    http://localhost:5000/perfiles/123	    Ver usuario específico
-PUT  	http://localhost:5000/perfiles/123	    Actualizar usuario
-DELETE	http://localhost:5000/perfiles/123	    Eliminar usuario
-POST	http://localhost:5000/perfiles/login	Iniciar sesión
+PUT  	  http://localhost:5000/perfiles/123	    Actualizar usuario
+DELETE	 http://localhost:5000/perfiles/123	    Eliminar usuario
+POST	   http://localhost:5000/perfiles/login	  Iniciar sesión
 
 ## 📁 Estructura de Carpetas (Cómo Está Organizado)
 
-Hábitos_Saludables/
-├── 🔧 backend/                 (El cerebro - guarda la información)
+📁 Hábitos_Saludables/
+├── 🗄️ database/               (Base de datos del proyecto)
+│   └── mi_app_db.sql          (Script SQL para crear la base de datos)
+│
+├── 🔧 backend/                (El cerebro - guarda la información)
+│   ├── .env                   (Variables de entorno)
 │   ├── app.py                 (Programa principal del servidor)
-│   ├── perfiles.json          (Base de datos - se crea automáticamente)
 │   └── requirements.txt       (Lista de herramientas necesarias)
 │
 └── 🎨 frontend/               (Lo que ves - interfaz bonita)
@@ -154,3 +158,6 @@ Hábitos_Saludables/
         ├── index.html         (Panel de control)
         ├── admin.css          (Diseño del panel)
         └── admin.js           (Funciones de administración)
+│
+└── 📄 README.md               (Guía y documentación del proyecto)
+
