@@ -1,0 +1,34 @@
+-- Crear base de datos
+CREATE DATABASE IF NOT EXISTS mi_app_db;
+USE mi_app_db;
+
+-- Tabla de perfiles
+CREATE TABLE IF NOT EXISTS perfiles (
+    id VARCHAR(255) PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+-- Tabla de hábitos programados
+CREATE TABLE IF NOT EXISTS habitos_programados (
+    id VARCHAR(255) PRIMARY KEY,
+    perfil_id VARCHAR(255) NOT NULL,
+    nombre VARCHAR(255) NOT NULL,
+    hora VARCHAR(50),
+    categoria VARCHAR(100),
+    activo BOOLEAN DEFAULT TRUE,
+    FOREIGN KEY (perfil_id) REFERENCES perfiles(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+-- Tabla de historial de hábitos
+CREATE TABLE IF NOT EXISTS habitos_historial (
+    id VARCHAR(255) PRIMARY KEY,
+    perfil_id VARCHAR(255) NOT NULL,
+    nombre VARCHAR(255) NOT NULL,
+    hora VARCHAR(50),
+    estado VARCHAR(50) DEFAULT 'no_completado',
+    fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (perfil_id) REFERENCES perfiles(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
